@@ -1,0 +1,18 @@
+{
+  "name": "n-api-experiments",
+  "version": "1.0.0",
+  "description": "n-api-experiments",
+  "main": "index.js",
+  "scripts": {
+    "start": "node-gyp configure build && node --no-warnings index.js"
+  },
+  "engines": {
+    "node": ">=8.4.0"
+  },
+  "author": "Denys Malykhin",
+  "license": "ISC",
+  "dependencies": {
+    "jimp": "^0.3.8",
+    "node-addon-api": "^1.4.0"
+  }
+}

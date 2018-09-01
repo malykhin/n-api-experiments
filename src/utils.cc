@@ -55,3 +55,11 @@ void toGrayScale(cv::string inPath, cv::string outPath) {
   cv::cvtColor(image, gray_image, CV_BGR2GRAY);
   cv::imwrite(outPath, gray_image);
 }
+
+void resize(cv::string inPath, cv::string outPath, uint32_t x, uint32_t y) {
+  cv::Mat image, rotated_image;
+  cv::Size size(x, y);
+  image = cv::imread(inPath, 1); 
+  cv::resize(image, rotated_image, size);
+  cv::imwrite(outPath, rotated_image);
+}

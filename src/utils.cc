@@ -2,38 +2,47 @@
 #include <opencv2/opencv.hpp>
 #include <stdio.h>
 
-void swap (unsigned int *a, unsigned int *b) {
+void swap(unsigned int *a, unsigned int *b)
+{
   unsigned int temp;
   temp = *a;
   *a = *b;
   *b = temp;
 }
 
-void bubbleSort(unsigned int *array, unsigned int length) {
+void bubbleSort(unsigned int *array, unsigned int length)
+{
   unsigned int i, j;
-  for (i = 0; i < (length - 1); ++i) {
-    for (j = 0; j < length - 1 - i; ++j ) {
-      if (*(array + j) > *(array + j + 1)) {
+  for (i = 0; i < (length - 1); ++i)
+  {
+    for (j = 0; j < length - 1 - i; ++j)
+    {
+      if (*(array + j) > *(array + j + 1))
+      {
         swap(array + j, array + j + 1);
       }
-    }  
+    }
   }
 }
 
-void quickSort(unsigned int *array, unsigned int length) {
+void quickSort(unsigned int *array, unsigned int length)
+{
   unsigned int partition;
   unsigned int i, j;
   unsigned int rightLength, leftLength;
   unsigned int *rightArray, *leftArray;
 
-  if (length < 2) {
+  if (length < 2)
+  {
     return;
-  } 
+  }
   partition = *(array);
   i = 1;
 
-  for (j = 1; j <= length; j++){
-    if (*(array + j) < partition) {
+  for (j = 1; j <= length; j++)
+  {
+    if (*(array + j) < partition)
+    {
       swap(array + i, array + j);
       i++;
     }
@@ -49,17 +58,19 @@ void quickSort(unsigned int *array, unsigned int length) {
   quickSort(leftArray, leftLength);
 }
 
-void toGrayScale(cv::string inPath, cv::string outPath) {
+void toGrayScale(std::string inPath, std::string outPath)
+{
   cv::Mat image, gray_image;
-  image = cv::imread(inPath, 1);  
+  image = cv::imread(inPath, 1);
   cv::cvtColor(image, gray_image, CV_BGR2GRAY);
   cv::imwrite(outPath, gray_image);
 }
 
-void resize(cv::string inPath, cv::string outPath, uint32_t x, uint32_t y) {
+void resize(std::string inPath, std::string outPath, uint32_t x, uint32_t y)
+{
   cv::Mat image, rotated_image;
   cv::Size size(x, y);
-  image = cv::imread(inPath, 1); 
+  image = cv::imread(inPath, 1);
   cv::resize(image, rotated_image, size);
   cv::imwrite(outPath, rotated_image);
 }

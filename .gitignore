@@ -1,5 +1,6 @@
-Lenna-bw-jimp.png
-Lenna-bw-n-api.png
+Lenna-bw-jimp.jpg
+Lenna-bw-n-api.jpg
 build
 node_modules
-Lenna*.png
+Lenna*.jpg
+.vscode
